@@ -11,6 +11,7 @@ require 'sidekiq'
 require 'sidekiq/util'
 require 'sidekiq/launcher'
 
+at_exit { puts "SIDEKIQ at_exit" }
 module Sidekiq
   class CLI
     include Util
