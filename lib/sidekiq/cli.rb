@@ -11,6 +11,8 @@ require 'sidekiq'
 require 'sidekiq/util'
 require 'sidekiq/launcher'
 
+STDOUT.sync = true
+
 at_exit { puts "SIDEKIQ at_exit" }
 module Sidekiq
   class CLI
