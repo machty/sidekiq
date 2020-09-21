@@ -176,8 +176,17 @@ module Sidekiq
     }
 
     def handle_signal(sig)
-      Sidekiq.logger.debug "Got #{sig} signal, LOL"
-      exit 45 if sig.to_s == "TERM" && ENV['TERMDEATH']
+      if ENV['TERMDEATH']
+        Sidekiq.logger.debug "TERMDEATH Got #{sig} signal, LOL"
+        if sig.to_s == "TERM"
+          Sidekiq.logger.debug "TERMDEATH calling exit 43"
+          exit 43
+        else
+      else
+        Sidekiq.logger.debug "NOTERMDEATH Got #{sig} signal, LOL"
+        # if sig.to_s == "TERM"
+        # else
+      end
 
       handy = SIGNAL_HANDLERS[sig]
       if handy
