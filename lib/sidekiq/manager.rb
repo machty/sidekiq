@@ -69,7 +69,8 @@ module Sidekiq
       sleep PAUSE_TIME
       return if @workers.empty?
 
-      logger.info { "Pausing to allow workers to finish..." }
+      puts "puts Pausing to allow workers to finish LOL..."
+      logger.info { "Pausing to allow workers to finish LOL..." }
       remaining = deadline - ::Process.clock_gettime(::Process::CLOCK_MONOTONIC)
       while remaining > PAUSE_TIME
         return if @workers.empty?

@@ -111,11 +111,14 @@ module Sidekiq
           handle_signal(signal)
         end
       rescue Interrupt
-        logger.info 'Shutting down'
+        logger.info 'Shutting down, LOL, for like 3 seconds'
+        sleep 3
+        logger.info '3 seconds over lmao launcher.stop'
         launcher.stop
+        logger.info 'after launcher.stop'
         # Explicitly exit so busy Processor threads can't block
         # process shutdown.
-        logger.info "Bye!"
+        logger.info "Bye! LOL"
         exit(0)
       end
     end
@@ -170,7 +173,7 @@ module Sidekiq
     }
 
     def handle_signal(sig)
-      Sidekiq.logger.debug "Got #{sig} signal"
+      Sidekiq.logger.debug "Got #{sig} signal, LOL"
       handy = SIGNAL_HANDLERS[sig]
       if handy
         handy.call(self)

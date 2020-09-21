@@ -68,7 +68,7 @@ module Sidekiq
             enqueue
             wait
           end
-          Sidekiq.logger.info("Scheduler exiting...")
+          Sidekiq.logger.info("Scheduler exiting LOL...")
         end
       end
 
