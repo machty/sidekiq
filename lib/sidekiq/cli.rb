@@ -185,7 +185,7 @@ module Sidekiq
           puts "ALEX 3"
           Sidekiq.logger.debug "TERMDEATH calling exit 43"
           exit 43
-        else
+        end
       else
         puts "ALEX 4"
         Sidekiq.logger.debug "NOTERMDEATH Got #{sig} signal, LOL"
